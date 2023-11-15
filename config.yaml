@@ -1,0 +1,18 @@
+credentials:
+  usernames:
+    deva:
+      email: devacodingid@gmail.com
+      name: Devendiran
+      password: $2b$12$gSRWuPH9ajb26Ng8HxNeyerB6iOTTuqFl9/zKYXh0/5rD6cVGVW3y # To be replaced with hashed password
+    prema:
+      email: efilinginbox@gmail.com
+      name: Prema
+      password: $2b$12$OveO92XEJl31aDFBHTFoA..nkpECWO4roEBuoKFtKgYMREvKXiWSm # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: random_signature_key # Must be string
+  name: random_cookie_name
+preauthorized:
+  emails:
+  - mdevendiran03@gmail.com
+
