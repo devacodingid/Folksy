@@ -85,6 +85,7 @@ merged2.replace('None','na')
 merged2.columns = ['BillDate', 'Retail_Customer', 'Sales @ 5% GST', 'CGST 2.5%', 'SGST 2.5%', 'Sales @ 12% GST', 'CGST 6%', 'SGST 6%','Sales_Inv_From', 'Sales_Inv_to', 'SaleReturn_From', 'SaleReturn_to']
 desired_order = ['BillDate', 'Sales_Inv_From', 'Sales_Inv_to', 'SaleReturn_From', 'SaleReturn_to','Retail_Customer', 'Sales @ 5% GST', 'CGST 2.5%', 'SGST 2.5%', 'Sales @ 12% GST', 'CGST 6%', 'SGST 6%']
 
-sales_summary = merged2.reindex(columns=desired_order) 
+sales_summary = merged2.reindex(columns=desired_order)
+sales_summary.round(decimals=2) 
 print(sales_summary.head())
 print(sales_data.head())
