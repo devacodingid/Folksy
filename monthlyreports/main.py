@@ -4,7 +4,7 @@ import requests
 from sales_processing import SalesProcessor
 from tallyposter import generate_xml_from_dataframe as gen
 
-folder_path = 'D:\\Developments\\vscprojects\\Folksy\\monthlyreports\\sales\\'  # Path to the folder containing files
+folder_path = 'D:\\testlog\\testsales\\'  # Path to the folder containing files
 counter = 0
 url = 'http:\\localhost:9000'
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         sales_data = processor.process_sales_data()
         # print(sales_data)
         company = sales_data['StoreName'].iloc[0] 
-        outputfile = company + '.xlsx'
+        outputfile = folder_path + "\\" + company + '.xlsx'
         grouped_bills = sales_data.groupby('BillDate').agg({
             'BillNumber': [
                 ('Sales_Inv_From', lambda x: first_bill(x, 'WS')),
@@ -91,9 +91,9 @@ if __name__ == "__main__":
             sales_data.to_excel(writer, sheet_name='sales_data', index=False)
 
         a = gen(sales_summary, company)
-        xmlname = 'output' + str(counter) + '.xml'
-        with open(xmlname, 'w') as text_file:
-            text_file.write(a)
+        # xmlname = folder_path + '\\output' + str(counter) + '.xml'
+        # with open(xmlname, 'w') as text_file:
+        #     text_file.write(a)
 
         posting = requests.post("http://localhost:9000",a)
         print(posting.text)
